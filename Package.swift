@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "LowDocDB",
+	platforms: [
+		.macOS(.v10_13),
+		.iOS(.v9),
+		.tvOS(.v11),
+		.watchOS(SupportedPlatform.WatchOSVersion.v4)
+	],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
@@ -24,5 +30,6 @@ let package = Package(
         .testTarget(
             name: "LowDocDBTests",
             dependencies: ["LowDocDB"]),
-    ]
+    ],
+	swiftLanguageVersions: [SwiftVersion.v4, SwiftVersion.v4_2, SwiftVersion.v5]
 )
