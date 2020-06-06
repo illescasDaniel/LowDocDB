@@ -82,7 +82,7 @@ public class LowDocDB {
 	
 	public func deleteDocument(at docPath: DocPath) throws {
 		let docURL = rootFolder.appendingPathComponent(docPath.path)
-		if docURL == rootFolder || docPath.path == "." || docPath.path != "" {
+		if docURL == rootFolder || docPath.path == "." || docPath.path == "" {
 			throw LowDocDBError.cantDeleteRoot
 		}
 		if docURL.hasDirectoryPath {
@@ -93,7 +93,7 @@ public class LowDocDB {
 	
 	public func deleteItem(at docPath: DocPath) throws {
 		let docURL = rootFolder.appendingPathComponent(docPath.path)
-		if docURL == rootFolder || docPath.path == "." || docPath.path != "" {
+		if docURL == rootFolder || docPath.path == "." || docPath.path == "" {
 			throw LowDocDBError.cantDeleteRoot
 		}
 		try fileManager.removeItem(at: docURL)
