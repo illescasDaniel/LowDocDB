@@ -6,6 +6,7 @@
 //
 
 import struct Foundation.URL
+import class Foundation.NSString
 
 public enum DocPathError: Error {
 	case invalidPath(path: String)
@@ -27,18 +28,18 @@ public struct DocPath {
 	}
 	
 	public func appending(_ docPath: DocPath) throws -> DocPath {
-		let path = URL(fileURLWithPath: self.path).appendingPathComponent(docPath.path).path
-		return try DocPath(path)
+		let newPath = (self.path as NSString).appendingPathComponent(docPath.path)
+		return try DocPath(newPath)
 	}
 	
-	public func appending(_ path: String) throws -> DocPath {
-		let path = URL(fileURLWithPath: self.path).appendingPathComponent(path).path
-		return try DocPath(path)
+	public func appending(_ somePath: String) throws -> DocPath {
+		let newPath = (self.path as NSString).appendingPathComponent(somePath)
+		return try DocPath(newPath)
 	}
 }
 public extension DocPath {
 	static var root: DocPath {
-		DocPath(rawPath: ".")
+		DocPath(rawPath: "")
 	}
 }
 extension DocPath: CustomStringConvertible {
