@@ -97,6 +97,9 @@ final class LowDocDBTests: XCTestCase {
 			try fileManager.createDirectory(at: rootFolder.appendingPathComponent("someNewFolder/other"), withIntermediateDirectories: true, attributes: nil)
 			XCTAssertTrue(lowDocDB.documentIsFolder(try DocPath("someNewFolder/other")))
 			
+			try fileManager.createDirectory(at: rootFolder.appendingPathComponent("someNewFolder/something.txt"), withIntermediateDirectories: true, attributes: nil)
+			XCTAssertTrue(lowDocDB.documentIsFolder(try DocPath("someNewFolder/something.txt")))
+			
 			try? fileManager.removeItem(at: rootFolder)
 		} catch {
 			XCTFail("\(error)")
@@ -333,6 +336,26 @@ final class LowDocDBTests: XCTestCase {
 			}
 			
 			XCTAssertEqual(count, 3)
+			
+			try? fileManager.removeItem(at: rootFolder)
+		} catch {
+			XCTFail("\(error)")
+			try? fileManager.removeItem(at: rootFolder)
+		}
+	}
+	
+	// MARK: Database folder depth
+	
+	func testDatabaseFolderDepthOption() {
+		let fileManager = FileManager.default
+		try? fileManager.removeItem(at: rootFolder)
+		do {
+			try fileManager.createDirectory(at: rootFolder, withIntermediateDirectories: false, attributes: nil)
+			let lowDocDB = LowDocDB(rootFolder: rootFolder, options: .init(maxDepth: 3))
+			
+			try lowDocDB.addDocument(at: try DocPath("one/two/file1.txt"), data: Data("someDocHere".utf8))
+			try lowDocDB.addDocument(at: try DocPath("one/two/three/file1.txt"), data: Data("someDocHere".utf8))
+			XCTAssertNil(try? lowDocDB.addDocument(at: try DocPath("one/two/three/four/file1.txt"), data: Data("someDocHere".utf8)))
 			
 			try? fileManager.removeItem(at: rootFolder)
 		} catch {

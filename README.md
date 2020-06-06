@@ -2,6 +2,8 @@
 
 Low level document based NoSQL database.
 
+This is a WIP project, so things may change during development.
+
 ## Interface
 ```swift
 public class LowDocDB {
