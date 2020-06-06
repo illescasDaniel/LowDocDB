@@ -6,16 +6,16 @@
 //
 
 public struct LowDocDBOptions {
-    
-    public let maxDepth: UInt8
-    
-    public init(maxDepth: UInt8 = .max) {
-        self.maxDepth = maxDepth
-    }
+	
+	public let maxDepth: UInt8
+	
+	public init(maxDepth: UInt8 = .max) {
+		self.maxDepth = maxDepth
+	}
 }
 
 public enum LowDocDBError: Error {
-    case maxDepthLimitReached
-    case cantDeleteRoot
+	case maxDepthLimitReached
+	case cantDeleteRoot
 	case pathMustBeADirectory
 }
