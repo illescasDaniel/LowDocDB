@@ -18,4 +18,5 @@ public enum LowDocDBError: Error {
 	case maxDepthLimitReached
 	case cantDeleteRoot
 	case pathMustBeADirectory
+	case pathMustBeADocument
 }

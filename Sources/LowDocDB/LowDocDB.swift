@@ -85,6 +85,17 @@ public class LowDocDB {
 		if docURL == rootFolder || docPath.path == "." || docPath.path != "" {
 			throw LowDocDBError.cantDeleteRoot
 		}
+		if docURL.hasDirectoryPath {
+			throw LowDocDBError.pathMustBeADocument
+		}
+		try fileManager.removeItem(at: docURL)
+	}
+	
+	public func deleteItem(at docPath: DocPath) throws {
+		let docURL = rootFolder.appendingPathComponent(docPath.path)
+		if docURL == rootFolder || docPath.path == "." || docPath.path != "" {
+			throw LowDocDBError.cantDeleteRoot
+		}
 		try fileManager.removeItem(at: docURL)
 	}
 }
