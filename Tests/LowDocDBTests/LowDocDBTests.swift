@@ -535,6 +535,17 @@ final class LowDocDBTests: XCTestCase {
 		("testAddDocuments", testAddDocuments),
 		("testAddDocumentsAtSubfolders", testAddDocumentsAtSubfolders),
 		("testDocumentsAtPath", testDocumentsAtPath),
-		("testDocumentsAtSubfolders", testDocumentsAtSubfolders)
+		("testDocumentsAtSubfolders", testDocumentsAtSubfolders),
+		("testMultipleDocumentsAtPath", testMultipleDocumentsAtPath),
+		("testMultipleDocumentsAtSubfolders", testMultipleDocumentsAtSubfolders),
+		("testDocumentsExistAtPath", testDocumentsExistAtPath),
+		("testDocumentsExistAtSubfolders", testDocumentsExistAtSubfolders),
+		("testDocumentIsFolder", testDocumentIsFolder),
+		("testDeleteDocument", testDeleteDocument),
+		("testDeleteItem", testDeleteItem),
+		("testDocumentPathsNotIncludingFolders", testDocumentPathsNotIncludingFolders),
+		("testDocumentPathsIncludingFolders", testDocumentPathsIncludingFolders),
+		("testDocumentPathsEnumeratorNotIncludingFolders", testDocumentPathsEnumeratorNotIncludingFolders),
+		("testDocumentPathsEnumeratorIncludingFolders", testDocumentPathsEnumeratorIncludingFolders)
 	]
 }
