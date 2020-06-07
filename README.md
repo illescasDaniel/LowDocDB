@@ -1,6 +1,6 @@
 # LowDocDB
 
-Low level document based NoSQL database.
+Low level document-oriented NoSQL database.
 
 This is a WIP project, so things may change during development.
 
@@ -29,3 +29,6 @@ public class LowDocDB {
     public func deleteItem(at docPath: DocPath) throws
 }
 ```
+
+### Built with LowDocDB
+**DocDB**: [https://github.com/illescasDaniel/DocDB](https://github.com/illescasDaniel/DocDB)

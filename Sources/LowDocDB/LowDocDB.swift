@@ -20,7 +20,7 @@ public class LowDocDB {
 	
 	/// Initializes the database with a root folder and some options.
 	/// - Parameters:
-	///   - rootFolder: The physical hard drive folder path that will be the root of the database. If this is not a folder it will throw a `fatalError` will be thrown.
+	///   - rootFolder: The physical hard drive folder path that will be the root of the database. If this is not a folder a `fatalError` will be thrown.
 	///   - options: Database options, like max folders depth
 	public init(rootFolder: URL, options: LowDocDBOptions = .init()) {
 		
